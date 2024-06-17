@@ -52,7 +52,7 @@ func (m *dbInfoMongoAdapter) Connect() error {
 func (m *dbInfoMongoAdapter) Save(topic string, infos any) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	now := time.Now()
+	now := time.Now().Format("2006-01-02T15:04:05.000")
 	collection := m.client.Database(m.config.Database).Collection(m.config.Collection)
 	_, err := collection.InsertOne(ctx, bson.M{"topic": topic, "info": infos, "created_at": now, "updated_at": now})
 	if err != nil {
