@@ -1,10 +1,13 @@
 package entities
 
-import "time"
+import (
+	"time"
+)
 
-type DBInfo struct {
+// DBInfos is stuct for dbinfos
+type DBInfos struct {
 	Topic     string    `json:"topic"`
-	Data      any       `json:"data"`
+	Info      any       `json:"info"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 }

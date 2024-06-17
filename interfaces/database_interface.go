@@ -1,7 +1,7 @@
 package interfaces
 
-import "github.com/informeai/dbinfos/entities"
-
+// IDatabase is interface for databases
 type IDatabase interface {
-	Save(entities.DBInfo) error
+	Save(topic string, infos any) error
+	Connect() error
 }
